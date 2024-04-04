@@ -38,7 +38,7 @@ const router = createBrowserRouter([
         // {
         //   path: 'seeDetail/:id',
         //   element: <SeeDetail></SeeDetail>,
-        //   loader: ({params})=> fetch(`http://localhost:5000/api/v1/allIncome/${params.id}`)
+        //   loader: ({params})=> fetch(`https://money-balance-server.vercel.app/api/v1/allIncome/${params.id}`)
 
         // },
        

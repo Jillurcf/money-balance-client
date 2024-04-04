@@ -14,9 +14,9 @@ const Dashboard = () => {
   console.log(isAdmin);
 
   return (
-    <div className="flex">
+    <div className="lg:flex">
       {/* dashboard sidebar */}
-      <div className=" w-64 min-h-screen bg-purple-400">
+      <div className="lg:w-64 w-full lg:min-h-screen bg-purple-400">
         <ul className="menu p-4">
           {isAdmin == "admin" ? (
             <>

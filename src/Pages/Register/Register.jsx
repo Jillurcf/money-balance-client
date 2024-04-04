@@ -53,7 +53,7 @@ const Register = () => {
         console.log(result.user);
         const loggedInuser = result.user;
         const user = {email};
-        axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
+        axios.post('https://money-balance-server.vercel.app/jwt', user, {withCredentials: true})
   
       // navigate(location?.state ? location?.state : '/')
  
@@ -69,7 +69,7 @@ const Register = () => {
         const createdAt = result.user?.metadata.creationTime;
 
         const duser = { email, password, createdAt: createdAt };
-        fetch("http://localhost:5000/api/v1/user", {
+        fetch("https://money-balance-server.vercel.app/api/v1/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",

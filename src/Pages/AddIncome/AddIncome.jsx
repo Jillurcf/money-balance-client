@@ -22,7 +22,7 @@ const AddIncome = () => {
     if (user) {
       // console.log(email);
       fetch(
-        `http://localhost:5000/api/v1/allIncome/${user?.email}`
+        `https://money-balance-server.vercel.app/api/v1/allIncome/${user?.email}`
       )
         .then((res) => res.json())
         .then((data) => setaddedFood(data));
@@ -48,7 +48,7 @@ const AddIncome = () => {
     console.log(addIncome);
 
     axios.post(
-      "http://localhost:5000/api/v1/addIncome",
+      "https://money-balance-server.vercel.app/api/v1/addIncome",
       addIncome,
       { withCredentials: true }
     );
@@ -68,7 +68,7 @@ const AddIncome = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `http://localhost:5000/api/v1/allIncome/${id}`,
+          `https://money-balance-server.vercel.app/api/v1/allIncome/${id}`,
           {
             method: "DELETE",
           }

@@ -20,7 +20,7 @@ const Banner = () => {
         <h1 className="text-center md:text-6xl text-2xl font-bold text-white py-12 ">
           Balance your <span className="text-yellow-500">MONEY</span> Everyday
         </h1>
-        <div className="max-w-[600px] mx-auto flex justify-evenly">
+        <div className="lg:max-w-[500px] w-[400px] mx-auto grid lg:grid-cols-4 grid-cols-2 gap-4 pl-4 lg:pl-0">
           <div>
             <Link to="/addIncome">
               <button className="btn btn-outline btn-warning">Income</button>

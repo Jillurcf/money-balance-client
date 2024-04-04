@@ -21,7 +21,7 @@ const SignUp = () => {
         new Swal('new user has been created')
         const createdAt = result.user?.metadata.creationTime;
         const user = {email, createdAt: createdAt}
-        fetch('http://localhost:5000/user', {
+        fetch('https://money-balance-server.vercel.app/user', {
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'
