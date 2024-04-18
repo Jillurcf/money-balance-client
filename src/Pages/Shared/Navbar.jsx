@@ -17,7 +17,7 @@ const NavBar = () => {
               ? "pending"
               : isActive
               ? "bg-blue-600 text-white font-bold"
-              : "text-blue-300 font-bold"
+              : "text-blue-800 font-bold"
           }
         >
           Home
@@ -31,7 +31,7 @@ const NavBar = () => {
           ? "pending"
           : isActive
           ? "bg-blue-600 text-white font-bold"
-          : "text-blue-300 font-bold"
+          : "text-blue-800 font-bold"
           }
         >
           FAQ
@@ -45,7 +45,7 @@ const NavBar = () => {
           ? "pending"
           : isActive
           ? "bg-blue-600 text-white font-bold"
-          : "text-blue-300 font-bold"
+          : "text-blue-800 font-bold"
         
           }
         >
@@ -60,7 +60,7 @@ const NavBar = () => {
           ? "pending"
           : isActive
           ? "bg-blue-600 text-white font-bold"
-          : "text-blue-300 font-bold"
+          : "text-blue-800 font-bold"
         
           }
         >
@@ -78,8 +78,8 @@ const NavBar = () => {
       .catch((error) => console.log(error));
   };
   return (
-      <div className=" max-w-screen-xl mx-auto z-40">
-        <div className="navbar lg:h-24 opacity-80">
+      <div className="mx-auto z-40 bg-blue-50 drop-shadow-md">
+        <div className="navbar lg:h-24 opacity-80 max-w-screen-xl mx-auto ">
           <div className="navbar-start">
             <div className="dropdown">
               <label tabIndex={0} className="btn btn-ghost text-blue-600 lg:hidden">
@@ -105,19 +105,22 @@ const NavBar = () => {
                 {navLinks}
               </ul>
             </div>
-            <motion.a
+            {/* <motion.a
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.8 }}
               className="w-24"
             >
-              {/* <img src="" alt="Logo Image" /> */}
-            </motion.a>
+              <img className="max-w-12" src="/src/assets/images/money-balance-logo.png" alt="Logo Image" />
+            </motion.a> */}
             <motion.h1
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.8 }}
-              className="px-2 lg:text-3xl text-pink-600 font-extrabold"
+              className="lg:text-3xl font-extrabold"
             >
-              Money Balance            </motion.h1>
+             <div className="flex gap-2">
+             {/* <img className="max-w-12" src="/src/assets/images/money-balance-logo.png" alt="Logo Image" /> */}
+            <h1 className="text-blue-500">  Money Balance  </h1>
+              </div>          </motion.h1>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{navLinks}</ul>

@@ -1,5 +1,5 @@
 import UseAuth from "../../Hooks/UseAuth";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const Banner = () => {
   const { isLoading } = UseAuth();
@@ -7,8 +7,8 @@ const Banner = () => {
     return <progress className="progress w-56"></progress>;
   }
   return (
-    <div className="">
-      <div
+    <div className="h-screen">
+      {/* <div
         className="hero min-h-[800px]"
         style={{
           backgroundImage:
@@ -46,7 +46,7 @@ const Banner = () => {
           </div>
         </div>
       </div>
-      </div>
+      </div> */}
    
     </div>
   );

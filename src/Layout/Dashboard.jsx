@@ -4,6 +4,8 @@ import { NavLink, Outlet } from "react-router-dom";
 
 import useAdmin from "../Hooks/useAdmin";
 import UseAuth from "../Hooks/UseAuth";
+import DashNavBar from "../Pages/DashBoard/DashNavBar/DashNavBar";
+import DashBoardBanner from "../Pages/DashBoard/DashBoardBanner/DashBoardBanner";
 
 const Dashboard = () => {
   // const [cart] = useCart();
@@ -15,8 +17,9 @@ const Dashboard = () => {
 
   return (
     <div className="lg:flex">
+      
       {/* dashboard sidebar */}
-      <div className="lg:w-64 w-full lg:min-h-screen bg-purple-400">
+      <div className="lg:w-48 w-full lg:min-h-screen bg-blue-600">
         <ul className="menu p-4">
           {isAdmin == "admin" ? (
             <>
@@ -61,7 +64,7 @@ const Dashboard = () => {
                Creator Home
               </NavLink>
             </li> :  <li>
-              <NavLink to="/dashboard/userHome">
+              <NavLink to="/dashboard">
                 <FaHome></FaHome>
                 Home
               </NavLink>
@@ -146,8 +149,10 @@ const Dashboard = () => {
         </ul>
       </div>
       {/* dashboard content */}
-      <div className="flex-1 p-8">
-        <Outlet></Outlet>
+      <div className="flex-1 py-6 max-w-screen-xl  mx-auto">
+        <DashNavBar></DashNavBar>
+        <DashBoardBanner></DashBoardBanner>
+                 <Outlet></Outlet>
       </div>
     </div>
   );
