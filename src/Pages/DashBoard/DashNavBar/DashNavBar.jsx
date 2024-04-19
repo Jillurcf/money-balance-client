@@ -5,6 +5,7 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import { Link} from "react-router-dom";
 const DashNavBar = () => {
   const { user, loggedOut } = useContext(AuthContext);
+  
 
   const handleLogOut = () => {
     loggedOut()
@@ -12,15 +13,15 @@ const DashNavBar = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="">
+    <div className="px-3 lg:px-0">
       <div className=" flex justify-between bg-base-100">
-        <div className="w-96">
+        <div className="">
           <div className="join">
             <input
-              className="input input-bordered w-96 join-item"
+              className="input input-bordered lg:w-96 join-item"
               placeholder="Search here"
             />
-            <button className="btn join-item rounded-r-full bg-blue-600">
+            <button className="btn join-item rounded-r-full bg-blue-600 hidden lg:block">
               <FaSearch className="text-white font-bold text-xl"></FaSearch>
             </button>
           </div>

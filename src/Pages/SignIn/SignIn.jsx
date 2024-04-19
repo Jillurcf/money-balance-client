@@ -2,10 +2,11 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import Swal from "sweetalert2";
-
+import { FcGoogle } from "react-icons/fc";
 import { Helmet } from "react-helmet-async";
 import UseAuth from "../../Hooks/UseAuth";
-
+import axios from "axios";
+import { FaFacebook, FaYoutube, FaLinkedin, FaInstagram,  } from "react-icons/fa";
 
 
 const SignIn = () => {
@@ -32,18 +33,18 @@ const SignIn = () => {
       .then((result) => {
         console.log(result.user);
 
-        // const user = { email };
+        const user = { email };
 
         // get acces token
-        // axios.post("https://loclahost/5000/api/v1/jwt", user, {
-        //     withCredentials: true,
-        //   })
-        //   .then((res) => {
-        //     console.log(res.data);
-        //     if (res.data.success) {
-        //       navigate(location?.state ? location?.state : "/");
-        //     }
-        //   });
+        axios.post("https://loclahost/5000/api/v1/jwt", user, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.success) {
+              navigate(location?.state ? location?.state : "/");
+            }
+          });
 
 
 
@@ -76,19 +77,42 @@ const SignIn = () => {
   };
 
   return (
-    <div className="bg-blue-600 h-screen items-center flex">
+    <div className=" h-screen items-center flex">
       <Helmet>
-        <title>FoodHero | Sign in</title>
+        <title>MB | Sign in</title>
       </Helmet>
       <div className="hero items-center">
-        <div className=" ">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl text-center mt-12 mb-12 font-bold">
-              Please Sign In
-            </h1>
+        <div className="flex justify-between">
+           {/* register image part start */}
+           <div
+            className="hero w-4/6"
+            style={{
+              backgroundImage: 'url(https://i.ibb.co/XyWpP16/signin-Img.jpg)'
+            }}
+
+          >
+            
+            <div className="hero-overlay bg-opacity-90"></div>
+            <div className="hero-content">
+              <div className="max-w-md">
+                <h1 className="mb-5 text-5xl font-bold leading-tight">Welcome to <br /> <span className="text-blue-600">Money Balance</span></h1>
+                <p className="mb-5 text-blue-300">
+                A daily money balance refers to the amount of money you have at the end of each day, taking into account both income and expenses. It is a snapshot of your financial health on a daily basis, helping you track your spending, monitor your budget, and make informed decisions about your finances.
+                </p>
+               <div className="flex gap-4 text-blue-300 mt-24">
+                <FaFacebook />
+                <FaYoutube />
+                <FaLinkedin />
+                <FaInstagram />
+               </div>
+              </div>
+            </div>
           </div>
-          <div className="card shadow-2xl bg-white">
-            <form onSubmit={handleSignin} className="card-body lg:w-[40vw]">
+         
+          <div className="card shadow-2xl w-96">
+          
+            <form onSubmit={handleSignin} className="card-body">
+            <h1 className="text-blue-900 font-bold">Please Signin Here</h1>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -112,35 +136,30 @@ const SignIn = () => {
                   className="input input-bordered"
                   required
                 />
-                <label className="label">
-                  <a
-                    href="/"
-                    className="underline text-blue-600 text-2xl label-text-alt link link-hover"
-                  >
-                    Skip Now
-                  </a>
-                </label>
+                
               </div>
 
               <div className="form-control mt-6">
-                {/* <p onClick={handleGoogleSignIn} className="text-2xl mb-4">Sign in with <span className=" ml-2 underline text-blue-700 font-bold">Google?</span></p> */}
-                <p onClick={handleGoogleSignIn} className="text-2xl mb-4">
-                  Sign In with
-                  <Link className=" ml-2 underline text-blue-700 font-semibold">
-                    GOOGLE
-                  </Link>
-                </p>
-                <p className="text-2xl mb-4">
-                  Do not have account? Please
-                  <Link
-                    className=" ml-2 underline text-blue-700 font-semibold"
-                    to="/register"
-                  >
-                    Register
-                  </Link>
-                </p>
+                <div className="">
+                <p onClick={handleGoogleSignIn} className=" mb-4 underline">
+                  Sign In with <span className="text-yellow-600">Google</span> <span> <Link className=" inline-block ml-2 underline text-blue-700 font-semibold">
+                   <FcGoogle className="-ml-2 " />
+                  </Link></span>
+                  </p>
+               
+                </div>
+                
                 <button className="text-white font-bold btn bg-blue-600">Sign In</button>
               </div>
+              <p className=" mb-4">
+                Do not have an account? Please
+                <Link
+                  className="ml-2 underline text-blue-700 font-semibold"
+                  to="/register"
+                >
+                  Register
+                </Link>
+              </p>
             </form>
           </div>
         </div>

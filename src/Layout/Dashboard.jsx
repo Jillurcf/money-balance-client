@@ -1,26 +1,26 @@
-import { FaHome, FaList, FaTrophy, FaUsers } from "react-icons/fa";
+import { FaHome, FaTrophy, FaUsers } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
-// import useCart from "../Hooks/useCart";
 
 import useAdmin from "../Hooks/useAdmin";
 import UseAuth from "../Hooks/UseAuth";
 import DashNavBar from "../Pages/DashBoard/DashNavBar/DashNavBar";
-import DashBoardBanner from "../Pages/DashBoard/DashBoardBanner/DashBoardBanner";
+import { MdSpaceDashboard, MdAnalytics } from "react-icons/md";
+import { FcMultipleInputs } from "react-icons/fc";
+import { GiExpense } from "react-icons/gi"
+import { IoSettings, IoWallet, IoWalletSharp } from "react-icons/io5";
 
 const Dashboard = () => {
   // const [cart] = useCart();
   const { user } = UseAuth();
 
- 
   const [isAdmin] = useAdmin();
   console.log(isAdmin);
 
   return (
     <div className="lg:flex">
-      
       {/* dashboard sidebar */}
-      <div className="lg:w-48 w-full lg:min-h-screen bg-blue-600">
-        <ul className="menu p-4">
+      <div className="lg:w-48 w-full lg:min-h-screen bg-blue-950 text-blue-400">
+        <ul className="menu px-4 py-8">
           {isAdmin == "admin" ? (
             <>
               <li>
@@ -57,57 +57,104 @@ const Dashboard = () => {
             </>
           ) : (
             <>
-             {
-              isAdmin == "creator" ? <li>
-              <NavLink to="/dashboard/userHome">
-                <FaHome></FaHome>
-               Creator Home
-              </NavLink>
-            </li> :  <li>
-              <NavLink to="/dashboard">
-                <FaHome></FaHome>
-                Home
-              </NavLink>
-            </li>
-             }
-              {
-                isAdmin == "creator" ? <li>
-                <NavLink to="/dashboard/addContest">
-                  <FaTrophy></FaTrophy>
-                 Add Contest
-                </NavLink>
-              </li> : <li>
-                <NavLink to="/dashboard/userWinning">
-                  <FaTrophy></FaTrophy>
-                  My Balance
-                </NavLink>
-              </li>
-              }
-             {
-              isAdmin == "creator" ?  <li>
-              <NavLink to="/dashboard/createdContest">
-                <FaList></FaList>
-                My Created Contest
-              </NavLink>
-            </li> :  <li>
-              <NavLink to="/dashboard/cart">
-                <FaList></FaList>
-                {/* My Participated Contest, cart ({cart.length}) */}
-              </NavLink>
-            </li>
-             }
-           
-              <div className="divider">OR</div>
+              {isAdmin == "creator" ? (
+                <li>
+                  <NavLink to="/dashboard/userHome">
+                    <FaHome></FaHome>
+                    Creator Home
+                  </NavLink>
+                </li>
+              ) : (
+                <li className="">
+                  <NavLink to="/dashboard/dashboardContents">
+                    <MdSpaceDashboard></MdSpaceDashboard>
+                    Dashboard
+                  </NavLink>
+                </li>
+              )}
+              {isAdmin == "creator" ? (
+                <li>
+                  <NavLink to="/dashboard/addContest">
+                    <FaTrophy></FaTrophy>
+                    Add Contest
+                  </NavLink>
+                </li>
+              ) : (
+                <li className="py-4">
+                  <NavLink to="/dashboard/addIncome">
+                    <FcMultipleInputs className="text-white"></FcMultipleInputs>
+                    Income
+                  </NavLink>
+                </li>
+                
+              )}
+              {isAdmin == "creator" ? (
+                <li>
+                  <NavLink to="/dashboard/addContest">
+                    <FaTrophy></FaTrophy>
+                    Add Contest
+                  </NavLink>
+                </li>
+              ) : (
+                <li>
+                  <NavLink to="/dashboard/addExpense">
+                    <GiExpense></GiExpense>
+                    Expenses
+                  </NavLink>
+                </li>
+                
+              )}
+              {isAdmin == "creator" ? (
+                <li>
+                  <NavLink to="/dashboard/addContest">
+                    <FaTrophy></FaTrophy>
+                    Add Contest
+                  </NavLink>
+                </li>
+              ) : (
+                <li className="py-6">
+                  <NavLink to="/dashboard/userWinning">
+                    <IoWallet></IoWallet>
+                    Wallets
+                  </NavLink>
+                </li>
+                
+              )}
+              {isAdmin == "creator" ? (
+                <li>
+                  <NavLink to="/dashboard/addContest">
+                    <FaTrophy></FaTrophy>
+                    Add Contest
+                  </NavLink>
+                </li>
+              ) : (
+                <li className="">
+                  <NavLink to="/dashboard/userWinning">
+                    <MdAnalytics></MdAnalytics>
+                    Analytics
+                  </NavLink>
+                </li>
+                
+              )}
+              
+
+              <div className="divider border-b-2 border-blue-500 py-6"></div>
               <li>
                 <NavLink to="/dashboard/userProfile">
                   <FaUsers></FaUsers>
                   My Profile
                 </NavLink>
               </li>
-              <li>
+              <li className="py-6">
                 <NavLink to="/">
                   <FaHome></FaHome>
                   Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/">
+                <IoSettings></IoSettings>
+                  Settings
                 </NavLink>
               </li>
             </>
@@ -151,8 +198,7 @@ const Dashboard = () => {
       {/* dashboard content */}
       <div className="flex-1 py-6 max-w-screen-xl  mx-auto">
         <DashNavBar></DashNavBar>
-        <DashBoardBanner></DashBoardBanner>
-                 <Outlet></Outlet>
+        <Outlet></Outlet>
       </div>
     </div>
   );

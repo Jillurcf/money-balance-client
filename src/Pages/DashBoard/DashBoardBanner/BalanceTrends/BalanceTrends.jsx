@@ -1,4 +1,4 @@
-import { PureComponent } from 'react';
+
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const data = [
@@ -39,9 +39,9 @@ const data = [
 ]
 
 
-export default class Example extends PureComponent {
+const BalanceTrends = () => {
     // static demoUrl = 'https://codesandbox.io/s/simple-line-chart-kec3v';
-    render() {
+    // render() {
     return (
       <ResponsiveContainer>
           <AreaChart
@@ -64,5 +64,7 @@ export default class Example extends PureComponent {
       </ResponsiveContainer>
     );
 }
-}
+
+
+export default BalanceTrends;
 
