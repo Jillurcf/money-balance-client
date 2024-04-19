@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { motion } from "framer-motion";
-
+import carAddImg from "../../assets/images/carAdd.jpg";
+import houseAddImg from "../../assets/images/HouseAdd.jpg";
 
 const NavBar = () => {
   const { user, loggedOut } = useContext(AuthContext);
@@ -37,17 +38,16 @@ const NavBar = () => {
           About us
         </NavLink>
       </li>
-      
-      
+
       <li>
         <NavLink
           to="/faq"
           className={({ isActive, isPending }) =>
-          isPending
-          ? "pending"
-          : isActive
-          ? "bg-blue-600 text-white font-bold"
-          : "text-blue-800 font-bold"
+            isPending
+              ? "pending"
+              : isActive
+              ? "bg-blue-600 text-white font-bold"
+              : "text-blue-800 font-bold"
           }
         >
           FAQ
@@ -57,12 +57,11 @@ const NavBar = () => {
         <NavLink
           to="/dashboard/dashboardContents"
           className={({ isActive, isPending }) =>
-          isPending
-          ? "pending"
-          : isActive
-          ? "bg-blue-600 text-white font-bold"
-          : "text-blue-800 font-bold"
-        
+            isPending
+              ? "pending"
+              : isActive
+              ? "bg-blue-600 text-white font-bold"
+              : "text-blue-800 font-bold"
           }
         >
           Dashboard
@@ -72,19 +71,16 @@ const NavBar = () => {
         <NavLink
           to="/dashboard"
           className={({ isActive, isPending }) =>
-          isPending
-          ? "pending"
-          : isActive
-          ? "bg-blue-600 text-white font-bold"
-          : "text-blue-800 font-bold"
-        
+            isPending
+              ? "pending"
+              : isActive
+              ? "bg-blue-600 text-white font-bold"
+              : "text-blue-800 font-bold"
           }
         >
           Feedback
         </NavLink>
       </li>
-
-     
     </>
   );
 
@@ -94,101 +90,118 @@ const NavBar = () => {
       .catch((error) => console.log(error));
   };
   return (
-      <div className="mx-auto z-40 bg-blue-50 drop-shadow-md">
-        <div className="navbar lg:h-24 opacity-80 max-w-screen-xl mx-auto ">
-          <div className="navbar-start">
-            <div className="dropdown">
-              <label tabIndex={0} className="btn btn-ghost text-blue-600 lg:hidden">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h8m-8 6h16"
-                  />
-                </svg>
-              </label>
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+    <div className="mx-auto z-40 bg-blue-50 drop-shadow-md relative">
+      <div className="h-auto w-24 absolute left-12 top-2">
+        <div className="flex">
+          <img className=" animate-pulse" src={carAddImg} alt="" />
+        </div>
+      </div>
+      <h1 className="absolute top-4 left-40 animate-pulse font-bold text-blue-800">
+        Buy your <br /> dream Car
+      </h1>
+      <div className="navbar lg:h-24 opacity-80 max-w-[1240px] mx-auto ">
+        <div className="navbar-start">
+          <div className="dropdown">
+            <label
+              tabIndex={0}
+              className="btn btn-ghost text-blue-600 lg:hidden"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
-                {navLinks}
-              </ul>
-            </div>
-            {/* <motion.a
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              {navLinks}
+            </ul>
+          </div>
+          {/* <motion.a
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.8 }}
               className="w-24"
             >
               <img className="max-w-12" src="/src/assets/images/money-balance-logo.png" alt="Logo Image" />
             </motion.a> */}
-            <motion.h1
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.8 }}
-              className="lg:text-3xl font-extrabold"
-            >
-             <div className="flex gap-2">
-             {/* <img className="max-w-12" src="/src/assets/images/money-balance-logo.png" alt="Logo Image" /> */}
-            <h1 className="text-blue-500">  Money Balance  </h1>
-              </div>          </motion.h1>
-          </div>
-          <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">{navLinks}</ul>
-          </div>
-
-          <div className="navbar-end">
-            {user?.email ? (
-              <div className="dropdown z-30 dropdown-end">
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full">
-                    <img src={user.photoURL} alt={user.displayName} />
-                  </div>
-                </label>
-                <ul
-                  tabIndex={0}
-                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-                >
-                  {/* <h1 className="text-center text-blue-600 font-bold">User Profile</h1> */}
-                  <li>
-                    <button className="btn btn-sm btn-secondary">
-                   <Link to='/userProfile'> View Profile</Link>
-                    </button>
-                  </li>
-                  <li>
-                    <button className="btn btn-sm btn-ghost">
-                     Name: {user.displayName}
-                    </button>
-                  </li>
-                  
-                  <li>
-                    <button
-                      className="btn btn-sm btn-ghost mt-4"
-                      onClick={handleLogOut}
-                    >
-                      Log Out
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            ) : (
-              <Link to="/signin">
-                <button className="btn bg-blue-600 border-none rounded-7xl text-white">
-                  Login
-                </button>
-              </Link>
-            )}
-          </div>
-        
+          <motion.h1
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.8 }}
+            className="lg:text-3xl font-extrabold"
+          >
+            <div className="flex gap-2">
+              {/* <img className="max-w-12" src="/src/assets/images/money-balance-logo.png" alt="Logo Image" /> */}
+              <h1 className="text-blue-500"> Money Balance </h1>
+            </div>{" "}
+          </motion.h1>
         </div>
-       
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+        </div>
+
+        <div className="navbar-end">
+          {user?.email ? (
+            <div className="dropdown z-30 dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img src={user.photoURL} alt={user.displayName} />
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                {/* <h1 className="text-center text-blue-600 font-bold">User Profile</h1> */}
+                <li>
+                  <button className="btn btn-sm btn-secondary">
+                    <Link to="/userProfile"> View Profile</Link>
+                  </button>
+                </li>
+                <li>
+                  <button className="btn btn-sm btn-ghost">
+                    Name: {user.displayName}
+                  </button>
+                </li>
+
+                <li>
+                  <button
+                    className="btn btn-sm btn-ghost mt-4"
+                    onClick={handleLogOut}
+                  >
+                    Log Out
+                  </button>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <Link to="/signin">
+              <button className="btn bg-blue-600 border-none rounded-7xl text-white">
+                Login
+              </button>
+            </Link>
+          )}
+        </div>
       </div>
-   
+      <div className="h-auto w-24 absolute right-12 top-2">
+        <div className="flex">
+          <img className=" animate-pulse" src={houseAddImg} alt="" />
+        </div>
+      </div>
+      <h1 className="absolute top-4 right-40 animate-pulse font-bold text-blue-800">
+        Need a <br /> Own House?
+      </h1>
+    </div>
   );
 };
 
