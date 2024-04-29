@@ -12,7 +12,7 @@ import { FaFacebook, FaYoutube, FaLinkedin, FaInstagram,  } from "react-icons/fa
 const Register = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { createUser, user } = UseAuth();
+  const { createUser, updateUserProfile, user } = UseAuth();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -21,7 +21,10 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-
+    const role = "user";
+    const status = 'varified'
+const userInfo = {name, photo, email, password, role, status}
+console.log(userInfo);
     console.log(name, photo, email, password);
     if (password.length < 6) {
       new Swal("The password is less than 6 characters");
@@ -37,24 +40,36 @@ const Register = () => {
       );
     }
 
-    // createUser(email, password)
-    // .then((result) => {
-
-    // console.log(loggedInuser);
-    //
-    //
-    //   })
-    // })
-    // .then((error) => {
-    //   console.log(error);
-    // });
+  //   createUser(email, password)
+  //   .then((result) => {
+  //     console.log(result);
+  //  })
+  //   .then((error) => {
+  //     console.log(error);
+  //   });
 
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
         const loggedInuser = result.user;
+        console.log(loggedInuser);
         const user = { email };
-        axios.post("https://money-balance-server.vercel.app/jwt", user, {
+        // updateUserProfile(user.name, user.photoURL)
+        // .then(() => {
+        //   axios.post('/api/v1/user', userInfo ).then(res => {
+        //     if(res.data){
+        //       Swal.fire({
+        //         position: "top-end",
+        //         icon: "success",
+        //         title: "User creatd successfully",
+        //         showConfirmButton: false,
+        //         timer: 1500,
+        //       });
+        //       navigate("/");
+        //     }
+        //   })
+        // })
+        axios.post("https://money-balance-server.vercel.app/api/v1/jwt", user, {
           withCredentials: true,
         });
 
@@ -150,7 +165,7 @@ const Register = () => {
                   <span className="label-text">Photo</span>
                 </label>
                 <input
-                  type="text"
+                  type="file"
                   name="photo"
                   placeholder="Yout photo URL"
                   className="input input-bordered"

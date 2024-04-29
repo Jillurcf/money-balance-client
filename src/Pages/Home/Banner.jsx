@@ -33,7 +33,7 @@ const Banner = () => {
       <div className="col-span-8   lg:max-w-screen-xl lg:mx-auto lg:mt-24 mt-4 px-3 lg:px-0">
         <div className="lg:flex lg:items-center lg:min-h-[50vh] gap-2">
           <div className=" lg:w-[50%]">
-            <h1 className="lg:text-6xl text-2xl font-bold leading-tight">
+            <h1 className="lg:text-6xl text-2xl font-bold leading-normal">
               <span className="text-blue-800">Money Balance</span> for your
               daily
               <span className="text-yellow-500">

@@ -13,13 +13,19 @@ const AddExpense = () => {
     const incomeAmount = form.amount.value;
     const userName = form.userName.value;
     const email = form.userEmail.value;
-    const description = form.des.value;
+    const month = form.month.value;
+    const year = form.year.value;
+    const date = form.date.value;
+    const description = form.description.value;
 
     const addIncome = {
       incomeSource,
       incomeAmount,
       userName,
       email,
+      month,
+      year,
+      date,
       description,
     };
     console.log(addIncome);
@@ -76,29 +82,54 @@ const AddExpense = () => {
                       </div>
                       </div>
 
-                     <div className="lg:flex gap-4">
-                     <div className="form-control">
-                        <label className="label">
-                          <span className="label-text">Description</span>
-                        </label>
-                        <input
-                          type="text"
-                          name="des"
-                          className="input input-bordered"
-                          // required
-                        />
-                      </div>
-                      <div className="form-control">
-                        <label className="label">
-                          <span className="label-text">Remarks</span>
-                        </label>
-                        <input
-                          type="text"
-                          name="description"
-                          className="input input-bordered"
-                          // required
-                        />
-                      </div>
+                      <div className="lg:flex gap-4">
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Month</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="month"
+                      className="input input-bordered"
+                      // required
+                    />
+                  </div>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Year</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="year"
+                      className="input input-bordered"
+                      // required
+                    />
+                  </div>
+                </div>
+                <div className="lg:flex gap-4">
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Date</span>
+                    </label>
+                    <input
+                      type="date"
+                      name="date"
+                      className="input input-bordered"
+                      // required
+                    />
+                  </div>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Description</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="description"
+                      className="input input-bordered"
+                      // required
+                    />
+                  </div>
+                
                      </div>
 
                       <div className="form-control">

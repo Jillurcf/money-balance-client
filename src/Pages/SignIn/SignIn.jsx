@@ -141,7 +141,7 @@ const SignIn = () => {
 
               <div className="form-control mt-6">
                 <div className="">
-                <p onClick={handleGoogleSignIn} className=" mb-4 underline">
+                <p onClick={handleGoogleSignIn} className=" mb-4 underline cursor-pointer">
                   Sign In with <span className="text-yellow-600">Google</span> <span> <Link className=" inline-block ml-2 underline text-blue-700 font-semibold">
                    <FcGoogle className="-ml-2 " />
                   </Link></span>

@@ -7,7 +7,7 @@ import DashNavBar from "../Pages/DashBoard/DashNavBar/DashNavBar";
 import { MdSpaceDashboard, MdAnalytics } from "react-icons/md";
 import { FcMultipleInputs } from "react-icons/fc";
 import { GiExpense } from "react-icons/gi"
-import { IoSettings, IoWallet, IoWalletSharp } from "react-icons/io5";
+import { IoSettings, IoWallet, } from "react-icons/io5";
 
 const Dashboard = () => {
   // const [cart] = useCart();
@@ -19,7 +19,7 @@ const Dashboard = () => {
   return (
     <div className="lg:flex">
       {/* dashboard sidebar */}
-      <div className="lg:w-48 w-full lg:min-h-screen bg-blue-950 text-blue-400">
+      <div className="lg:w-48 w-full lg:min-h-screen bg-blue-950 text-white">
         <ul className="menu px-4 py-8">
           {isAdmin == "admin" ? (
             <>
@@ -38,7 +38,7 @@ const Dashboard = () => {
               <li>
                 <NavLink to="/dashboard/manageContests">
                   <FaTrophy></FaTrophy>
-                  Manage Contest
+                 Manage User Contest
                 </NavLink>
               </li>
               <div className="divider">OR</div>
@@ -61,7 +61,7 @@ const Dashboard = () => {
                 <li>
                   <NavLink to="/dashboard/userHome">
                     <FaHome></FaHome>
-                    Creator Home
+                    User Home
                   </NavLink>
                 </li>
               ) : (
@@ -76,7 +76,7 @@ const Dashboard = () => {
                 <li>
                   <NavLink to="/dashboard/addContest">
                     <FaTrophy></FaTrophy>
-                    Add Contest
+                    Add User
                   </NavLink>
                 </li>
               ) : (
@@ -108,7 +108,7 @@ const Dashboard = () => {
                 <li>
                   <NavLink to="/dashboard/addContest">
                     <FaTrophy></FaTrophy>
-                    Add Contest
+                    Add expenses
                   </NavLink>
                 </li>
               ) : (
@@ -124,7 +124,7 @@ const Dashboard = () => {
                 <li>
                   <NavLink to="/dashboard/addContest">
                     <FaTrophy></FaTrophy>
-                    Add Contest
+                    Add Income
                   </NavLink>
                 </li>
               ) : (
@@ -138,7 +138,7 @@ const Dashboard = () => {
               )}
               
 
-              <div className="divider border-b-2 border-blue-500 py-6"></div>
+              <div className="divider border-b-2 text-white py-6"></div>
               <li>
                 <NavLink to="/dashboard/userProfile">
                   <FaUsers></FaUsers>
@@ -159,40 +159,7 @@ const Dashboard = () => {
               </li>
             </>
           )}
-          {/* <li>                  
-                    <NavLink to="/dashboard/review">
-                   <FaAd></FaAd>
-                  Ad a Review
-                    </NavLink>
-                </li>
-                <li>                  
-                    <NavLink to="/dashboard/paymentHistory">
-                    <FaList></FaList>
-                  Real Payment History
-                    </NavLink>
-                </li>
-                </>
-             }
-                {/* Shared navLink */}
-          {/* <div className="divider">OR</div>
-                <li>                  
-                    <NavLink to="/">
-                    <FaHome></FaHome>
-                  Home
-                    </NavLink>
-                </li>
-                <li>                  
-                    <NavLink to="/order/salad">
-                    <FaSearch></FaSearch>
-                 Menu
-                    </NavLink>
-                </li>
-                <li>                  
-                    <NavLink to="/order/contact">
-                 <FaEnvelope></FaEnvelope>
-                 Contact
-                    </NavLink>
-                </li> */}
+          
         </ul>
       </div>
       {/* dashboard content */}

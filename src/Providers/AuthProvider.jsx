@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import app from "../firebase.config";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, } from "firebase/auth";
 const auth = getAuth(app)
 import { GoogleAuthProvider } from "firebase/auth";
 import axios from "axios";
@@ -31,6 +31,14 @@ const AuthProvider = ({children}) => {
         setLoading(true)
       return signOut(auth)
     }
+
+    
+  const updateUserProfile = (name, photo) => {
+      return updateProfile(auth.currentUser, {
+        displayName: name,
+        photo,
+      });
+    };
 
     // useEffect(()=>{
     //     const unsubsCribe = onAuthStateChanged(auth, currentUser =>{
@@ -77,6 +85,7 @@ const AuthProvider = ({children}) => {
         signIn,
         loggedOut,
         signinwithGoogle,
+        updateUserProfile
     }
     return (
         <AuthContext.Provider value={userInfo}>

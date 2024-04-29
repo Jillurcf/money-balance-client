@@ -91,14 +91,7 @@ const NavBar = () => {
   };
   return (
     <div className="mx-auto z-40 bg-blue-50 drop-shadow-md relative">
-      <div className="h-auto w-24 absolute left-12 top-2">
-        <div className="flex">
-          <img className=" animate-pulse" src={carAddImg} alt="" />
-        </div>
-      </div>
-      <h1 className="absolute top-4 left-40 animate-pulse font-bold text-blue-800">
-        Buy your <br /> dream Car
-      </h1>
+    
       <div className="navbar lg:h-24 opacity-80 max-w-[1240px] mx-auto ">
         <div className="navbar-start">
           <div className="dropdown">
@@ -128,13 +121,7 @@ const NavBar = () => {
               {navLinks}
             </ul>
           </div>
-          {/* <motion.a
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.8 }}
-              className="w-24"
-            >
-              <img className="max-w-12" src="/src/assets/images/money-balance-logo.png" alt="Logo Image" />
-            </motion.a> */}
+       
           <motion.h1
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.8 }}
@@ -193,14 +180,7 @@ const NavBar = () => {
           )}
         </div>
       </div>
-      <div className="h-auto w-24 absolute right-12 top-2">
-        <div className="flex">
-          <img className=" animate-pulse" src={houseAddImg} alt="" />
-        </div>
-      </div>
-      <h1 className="absolute top-4 right-40 animate-pulse font-bold text-blue-800">
-        Need a <br /> Own House?
-      </h1>
+   
     </div>
   );
 };
