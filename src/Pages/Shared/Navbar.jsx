@@ -2,8 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { motion } from "framer-motion";
-import carAddImg from "../../assets/images/carAdd.jpg";
-import houseAddImg from "../../assets/images/HouseAdd.jpg";
+import { IoIosNotifications } from "react-icons/io";
 
 const NavBar = () => {
   const { user, loggedOut } = useContext(AuthContext);
@@ -26,7 +25,7 @@ const NavBar = () => {
       </li>
       <li>
         <NavLink
-          to="/about"
+          to="/aboutUs"
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"
@@ -69,7 +68,7 @@ const NavBar = () => {
       </li>
       <li>
         <NavLink
-          to="/dashboard"
+          to="/feedback"
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"

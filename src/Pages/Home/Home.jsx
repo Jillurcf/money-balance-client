@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import UseAuth from "../../Hooks/UseAuth";
 import Banner from "./Banner";
 
+
 const Home = () => {
    
     const {loading} = UseAuth();
@@ -17,6 +18,7 @@ const Home = () => {
             <title>MB | Home</title>
             </Helmet>     
            <Banner></Banner>
+          
         </div>
     );
 };

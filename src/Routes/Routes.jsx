@@ -16,6 +16,9 @@ import UserHome from "../Pages/DashBoard/UserHome/UserHome";
 import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
 import ManageUsers from "../Pages/DashBoard/ManageUsers/ManageUsers";
 import DashBoardContents from "../Pages/DashBoard/DashBoardBanner/DashBoardContents";
+import AboutUs from "../Pages/AboutUs/AboutUs";
+import Faq from "../Pages/Faq/Faq";
+import Feedback from "../Pages/Feedback/FeedBack";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +29,18 @@ const router = createBrowserRouter([
         {
             path: '/',
             element: <Home></Home>
+        },
+        {
+            path: '/aboutUs',
+            element: <AboutUs></AboutUs>
+        },
+        {
+            path: '/faq',
+            element: <Faq></Faq>
+        },
+        {
+            path: '/feedback',
+            element: <Feedback></Feedback>
         },
        
         
@@ -93,7 +108,7 @@ const router = createBrowserRouter([
       },
       {
         path: "dashboardContents",
-        element: <DashBoardContents></DashBoardContents>
+        element: <PrivateRoute><DashBoardContents></DashBoardContents></PrivateRoute>
       },
     ],
   },

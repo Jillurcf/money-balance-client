@@ -2,15 +2,27 @@ import axios from "axios";
 import UseAuth from "../../Hooks/UseAuth";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import { useEffect, useState } from "react";
 
 const AddExpense = () => {
   const { user } = UseAuth();
+  const [totalIncome, setTotalIncome] = useState(0)
   
+  useEffect(() => {
+    axios.get(`https://money-balance-server.vercel.app/api/v1/totalIncome/${user?.email}`)
+      .then(response => {
+        setTotalIncome(response.data);
+      })
+      .catch(error => {
+        console.error('Error occurred while fetching sum data:', error);
+      });
+  }, []);
+
   const handleAddExpense = (e) => {
     e.preventDefault();
     const form = e.target;
-    const incomeSource = form.expenseSource.value;
-    const incomeAmount = form.amount.value;
+    const expenseSource = form.expenseSource.value;
+    const expenseAmount = form.amount.value;
     const userName = form.userName.value;
     const email = form.userEmail.value;
     const month = form.month.value;
@@ -18,9 +30,9 @@ const AddExpense = () => {
     const date = form.date.value;
     const description = form.description.value;
 
-    const addIncome = {
-      incomeSource,
-      incomeAmount,
+    const addExpense = {
+      expenseSource,
+      expenseAmount,
       userName,
       email,
       month,
@@ -28,15 +40,19 @@ const AddExpense = () => {
       date,
       description,
     };
-    console.log(addIncome);
-
-    axios.post(
-      "https://money-balance-server.vercel.app/api/v1/addExpense",
-      addIncome,
-      { withCredentials: true }
-    );
-    Swal.fire("Expense added");
-    e.target.reset();
+    console.log(addExpense);
+    if (expenseAmount < totalIncome ){
+      Swal.fire("Balance is low");
+    } else{
+      axios.post(
+        "https://money-balance-server.vercel.app/api/v1/addExpense",
+        addExpense,
+        { withCredentials: true }
+      );
+      Swal.fire("Expense added");
+      
+    }
+    
   };
 
  

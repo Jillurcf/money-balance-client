@@ -1,0 +1,25 @@
+.wrapper {
+    border: 1px solid white;
+    background-color: whtie;
+    color: white;
+    border-radius: 15px;
+    
+  }
+  
+  .container {
+    background-color: pink;
+    border-radius: 15px;
+    
+  }
+  
+  .barCompleted {
+  
+  }
+  
+  .label {
+    font-size: 10px;
+    color: white;
+    font-weight: 700;
+    font-display:;
+  }
+  

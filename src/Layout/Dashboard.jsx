@@ -19,13 +19,13 @@ const Dashboard = () => {
   return (
     <div className="lg:flex">
       {/* dashboard sidebar */}
-      <div className="lg:w-48 w-full lg:min-h-screen bg-blue-950 text-white">
+      <div className="lg:fixed lg:w-48 w-full lg:min-h-screen bg-blue-950 text-white">
         <ul className="menu px-4 py-8">
           {isAdmin == "admin" ? (
             <>
               <li>
                 <NavLink to="/dashboard/adminHome">
-                  <FaHome></FaHome>
+                  <FaHome></FaHome>t
                   Admin Home
                 </NavLink>
               </li>
@@ -163,9 +163,11 @@ const Dashboard = () => {
         </ul>
       </div>
       {/* dashboard content */}
-      <div className="flex-1 py-6 max-w-screen-xl  mx-auto">
+      <div className=" flex-1 py-6 max-w-screen-xl mx-auto">
+        <div className="">
         <DashNavBar></DashNavBar>
         <Outlet></Outlet>
+        </div>
       </div>
     </div>
   );
