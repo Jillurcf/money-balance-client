@@ -73,7 +73,7 @@ console.log(userInfo);
           withCredentials: true,
         });
 
-        // navigate(location?.state ? location?.state : '/')
+        navigate(location?.state ? location?.state : '/')
 
         updateProfile(result.user, {
           displayName: name,

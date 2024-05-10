@@ -25,7 +25,7 @@ const Dashboard = () => {
             <>
               <li>
                 <NavLink to="/dashboard/adminHome">
-                  <FaHome></FaHome>t
+                  <FaHome></FaHome>
                   Admin Home
                 </NavLink>
               </li>
@@ -35,12 +35,12 @@ const Dashboard = () => {
                   Mange Users
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to="/dashboard/manageContests">
                   <FaTrophy></FaTrophy>
                  Manage User Contest
                 </NavLink>
-              </li>
+              </li> */}
               <div className="divider">OR</div>
               <li>
                 <NavLink to="/dashboard/userProfile">
